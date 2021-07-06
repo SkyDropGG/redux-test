@@ -1,22 +1,20 @@
-import { plusType, minusType } from './actions';
+import { createSlice } from '@reduxjs/toolkit'
 
-export const reducer = (action, state) => {
-  const { value } = state.counter;
-
-  switch (action.type) {
-    case plusType:
-
-      return {
-        ...state,
-        counter: { value: value + 1 }
-      };
-    case minusType:
-
-      return {
-        ...state,
-        counter: { value: value - 1 }
-      };
-    default:
-      return state;
+export const counterSlice = createSlice({
+  name: 'counter',
+  initialState: {
+    value: 0
+  },
+  reducers: {
+    increment: (state) => {
+      state.value += 1
+    },
+    decrement: (state) => {
+      state.value -= 1
+    },
   }
-};
+});
+
+export const { increment, decrement } = counterSlice.actions;
+
+export const counterSliceReducer =  counterSlice.reducer;
