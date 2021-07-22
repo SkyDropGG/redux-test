@@ -1,17 +1,15 @@
 import './App.css';
 import { Counter } from './Counter.component';
+import { Provider } from 'react-redux';
 import { store } from './redux/createStore';
-import { Provider } from 'react-redux'
 
 function App() {
   return (
-    <div className="App">
-      <Provider store={store} >
+    <Provider store={store}>
+      <div className="App">
         <Counter />
-
-      </Provider>
-
-    </div>
+      </div>
+    </Provider>
   );
 }
 
